@@ -1,0 +1,277 @@
+@font-face {
+  font-family: "SoftIceCream";
+  src:
+    url("fonts/ACSoftIceCream/AC-softice-cream.ttf") format("truetype"),
+    url("fonts/ACSoftIceCream/AC-softice-cream.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "VAL";
+  src: url("fonts/VAL/VAL.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 10px;
+}
+
+body.is-scrolling ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #7f8aff, #d98eff);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: "SoftIceCream", sans-serif;
+  overflow-x: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.glass-header {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 15px 40px;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  font-size: 1.2rem;
+}
+
+.logo-umika {
+  font-family: "VAL", sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  background: linear-gradient(to right, #7f8aff, #d98eff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: white;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  padding: 0 2px;
+  display: inline-block;
+}
+
+.logo-umika:hover {
+  color: transparent;
+}
+
+.nav-active {
+  background: linear-gradient(to right, #ffd5fe, #e4dd90);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+/* The magic sliding text block! */
+.hidden-text {
+  display: inline-block;
+  max-width: 0;
+  overflow: hidden;
+  vertical-align: bottom;
+  transition: max-width 0.4s ease-out;
+}
+
+/* Expands when you hover anywhere on the nav item */
+.nav-active:hover .hidden-text {
+  max-width: 120px;
+}
+
+.nav-item {
+  opacity: 0.9;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.nav-item:hover {
+  opacity: 1;
+}
+
+#hero {
+  background-image: url("textures/bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+#center-text {
+  font-size: 3.5rem;
+  background: linear-gradient(to left, #fff9c4, #ffcce0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  z-index: 10;
+  filter: drop-shadow(0 0 10px rgba(255, 209, 224, 0.3));
+  animation: fadeIn 1s ease-in forwards;
+  text-align: center;
+}
+
+.orbit-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeIn 1s ease-in 1.5s forwards;
+}
+
+.orbiter {
+  position: absolute;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  color: #ffffff;
+  pointer-events: none;
+  left: 50%;
+  top: 50%;
+}
+
+.site-footer {
+  background-color: #f8f9fa;
+  color: #333;
+  padding: 30px 50px 60px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.footer-left {
+  background: linear-gradient(to right, #f48fb1, #ce93d8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.footer-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.footer-center a {
+  color: #333;
+  display: flex;
+  align-items: center;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-center a:hover {
+  color: #d98eff;
+  transform: translateY(-3px);
+}
+
+.footer-center svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.footer-right {
+  font-family: "VAL", sans-serif;
+  background: linear-gradient(to right, #7f8aff, #d98eff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.footer-bottom {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  color: #f48fb1;
+  opacity: 0.8;
+}
+
+.cf-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.cf-link:hover {
+  color: #f38020;
+}
+
+@media (max-width: 768px) {
+  #center-text {
+    font-size: 1.8rem;
+  }
+  .orbiter {
+    font-size: 0.85rem;
+  }
+  .glass-header {
+    padding: 10px 20px;
+    font-size: 1rem;
+    width: 85%;
+    justify-content: space-between;
+    gap: 15px;
+  }
+  .site-footer {
+    flex-direction: column;
+    gap: 25px;
+    padding: 40px 20px 60px 20px;
+  }
+  .footer-center {
+    position: static;
+    transform: none;
+  }
+  .footer-bottom {
+    bottom: 10px;
+    font-size: 0.65rem;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
