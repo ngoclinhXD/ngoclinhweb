@@ -41,6 +41,10 @@ body {
   user-select: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 .glass-header {
   position: fixed;
   top: 20px;
@@ -106,6 +110,8 @@ body {
   opacity: 0.9;
   cursor: pointer;
   transition: opacity 0.3s ease;
+  color: white;
+  text-decoration: none;
 }
 
 .nav-item:hover {
@@ -171,7 +177,13 @@ body {
 }
 
 .footer-left {
-  background: linear-gradient(to right, #f48fb1, #ce93d8);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-brand {
+  background: linear-gradient(to right, #ffd5fe, #e4dd90);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -180,45 +192,73 @@ body {
   font-weight: bold;
 }
 
-.footer-center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+.footer-socials {
   display: flex;
-  gap: 30px;
-  align-items: center;
+  gap: 15px;
 }
 
-.footer-center a {
+.footer-socials a {
   color: #333;
   display: flex;
   align-items: center;
-  transition:
-    transform 0.3s ease,
-    color 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
   text-decoration: none;
 }
 
-.footer-center a:hover {
+.footer-socials a:hover {
   color: #d98eff;
   transform: translateY(-3px);
 }
 
-.footer-center svg {
-  width: 22px;
-  height: 22px;
+.footer-socials svg {
+  width: 20px;
+  height: 20px;
   fill: currentColor;
 }
 
 .footer-right {
+  display: flex;
+  gap: 50px;
+  align-items: flex-end;
+  text-align: left;
+}
+
+.footer-links, .footer-project {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.footer-label {
+  font-size: 0.8rem;
+  color: #333;
+  margin-bottom: 2px;
+}
+
+.footer-links a {
+  color: #333;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  font-weight: bold;
+}
+
+.footer-links a:hover {
+  color: #d98eff;
+}
+
+.footer-umika {
   font-family: "VAL", sans-serif;
   background: linear-gradient(to right, #7f8aff, #d98eff);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
+  line-height: 1;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .footer-bottom {
@@ -260,13 +300,37 @@ body {
     gap: 25px;
     padding: 40px 20px 60px 20px;
   }
-  .footer-center {
-    position: static;
-    transform: none;
+  .footer-left, .footer-right {
+    align-items: center;
+    text-align: center;
+  }
+  .footer-right {
+    flex-direction: column;
+    gap: 20px;
   }
   .footer-bottom {
     bottom: 10px;
     font-size: 0.65rem;
+  }
+  
+  .tos-hero {
+    padding: 140px 20px 40px;
+  }
+  .tos-hero-title {
+    font-size: 2.2rem;
+  }
+  .tos-content {
+    padding: 0 16px 60px;
+  }
+  .tos-section {
+    padding: 28px 24px;
+    border-radius: 16px;
+  }
+  .section-number {
+    font-size: 2rem;
+  }
+  .section-title {
+    font-size: 1.3rem;
   }
 }
 
@@ -274,4 +338,247 @@ body {
   to {
     opacity: 1;
   }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── TOS Specific Pages ── */
+.tos-bg {
+  background-image: url("textures/bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+  background-color: #0c0c1a;
+}
+
+.tos-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 12, 26, 0.3) 0%,
+    rgba(12, 12, 26, 0.6) 30%,
+    rgba(12, 12, 26, 0.85) 100%
+  );
+  pointer-events: none;
+}
+
+.tos-hero {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 180px 20px 60px;
+  text-align: center;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.tos-hero-label {
+  font-size: 0.85rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #ffd5fe, #e4dd90);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+.tos-hero-title {
+  font-size: 3.5rem;
+  font-weight: normal;
+  background: linear-gradient(to left, #fff9c4, #ffcce0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 20px rgba(255, 209, 224, 0.25));
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.4s forwards;
+}
+
+.tos-hero-sub {
+  font-size: 1rem;
+  opacity: 0;
+  color: rgba(255, 255, 255, 0.5);
+  animation: fadeInUp 0.6s ease-out 0.6s forwards;
+}
+
+.tos-content {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 30px 100px;
+}
+
+.tos-section {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.tos-section:nth-child(1) { animation-delay: 0.7s; }
+.tos-section:nth-child(2) { animation-delay: 0.8s; }
+.tos-section:nth-child(3) { animation-delay: 0.9s; }
+.tos-section:nth-child(4) { animation-delay: 1.0s; }
+.tos-section:nth-child(5) { animation-delay: 1.1s; }
+.tos-section:nth-child(6) { animation-delay: 1.2s; }
+.tos-section:nth-child(7) { animation-delay: 1.3s; }
+.tos-section:nth-child(8) { animation-delay: 1.4s; }
+.tos-section:nth-child(9) { animation-delay: 1.5s; }
+
+.tos-section:hover {
+  transform: translateY(-4px);
+  border-color: rgba(127, 138, 255, 0.25);
+  box-shadow: 0 8px 40px rgba(127, 138, 255, 0.1);
+}
+
+.section-number {
+  font-family: "VAL", sans-serif;
+  font-size: 2.8rem;
+  background: linear-gradient(to left, #fff9c4, #ffcce0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  line-height: 1;
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: normal;
+  margin-bottom: 16px;
+  background: linear-gradient(to right, #ffd5fe, #e4dd90);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.tos-section p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 12px;
+}
+
+.tos-section p:last-child {
+  margin-bottom: 0;
+}
+
+.tos-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+.tos-section ul li {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.tos-section ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7f8aff, #d98eff);
+  opacity: 0.7;
+}
+
+.brand-umika {
+  font-family: "VAL", sans-serif;
+  background: linear-gradient(to right, #7f8aff, #d98eff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-size: 1.1em;
+}
+
+.highlight {
+  color: rgba(255, 255, 255, 0.9);
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.9);
+}
+
+.inline-link {
+  background: linear-gradient(to right, #7f8aff, #d98eff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transition: opacity 0.3s ease;
+  position: relative;
+}
+
+.inline-link::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(to right, #7f8aff, #d98eff);
+  transition: width 0.3s ease;
+}
+
+.inline-link:hover::after {
+  width: 100%;
+}
+
+.inline-link:hover {
+  opacity: 0.8;
+}
+
+.arrow {
+  font-size: 0.85em;
+}
+
+.notice-box {
+  background: rgba(127, 138, 255, 0.08);
+  border-left: 3px solid rgba(127, 138, 255, 0.5);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  margin-top: 16px;
+}
+
+.notice-box p {
+  margin-bottom: 0 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
