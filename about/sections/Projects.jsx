@@ -1,4 +1,5 @@
 import SideLabel from '../components/SideLabel.jsx'
+import umiHappi from '../../textures/umi_happi.png'
 
 export default function Projects() {
   return (
@@ -22,7 +23,7 @@ export default function Projects() {
             <span className="umika-cta">visit umika.ngoclinh.org →</span>
           </div>
           <img
-            src="../textures/umi_happi.png"
+            src={umiHappi}
             alt=""
             aria-hidden="true"
             className="umika-char"

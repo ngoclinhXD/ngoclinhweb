@@ -1,4 +1,6 @@
 import SideLabel from '../components/SideLabel.jsx'
+import portraitImg from '../../textures/azuka-portrait.png'
+import utcBadgeImg from '../../textures/utc-badge.png'
 
 export default function WhoAmI() {
   return (
@@ -26,7 +28,7 @@ export default function WhoAmI() {
           <div className="who-col who-col-portrait">
             <div className="portrait-box" aria-label="Portrait placeholder">
               <img
-                src="../textures/azuka-portrait.png"
+                src={portraitImg}
                 alt="Azuka portrait"
                 className="portrait-img"
                 onError={e => { e.currentTarget.style.display = 'none' }}
@@ -35,7 +37,7 @@ export default function WhoAmI() {
             </div>
             <div className="utc-badge-box">
               <img
-                src="../textures/utc-badge.png"
+                src={utcBadgeImg}
                 alt="UTC badge"
                 className="utc-badge-img"
                 onError={e => { e.currentTarget.style.display = 'none' }}
