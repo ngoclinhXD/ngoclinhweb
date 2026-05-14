@@ -316,7 +316,10 @@ a {
     bottom: 10px;
     font-size: 0.65rem;
   }
-  
+
+  .tos-bg {
+    background-attachment: scroll;
+  }
   .tos-hero {
     padding: 140px 20px 40px;
   }
@@ -336,6 +339,31 @@ a {
   }
   .doc-section {
     padding: 36px 0;
+  }
+  .doc-section p,
+  .doc-section ul li,
+  .doc-notice p {
+    overflow-wrap: break-word;
+  }
+}
+
+@media (max-width: 480px) {
+  .glass-header {
+    gap: 8px;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+  .tos-hero {
+    padding: 110px 16px 28px;
+  }
+  .tos-hero-title {
+    font-size: 1.85rem;
+  }
+  .doc-layout {
+    padding: 0 16px 60px;
+  }
+  .doc-section h2 {
+    font-size: 1.3rem;
   }
 }
 

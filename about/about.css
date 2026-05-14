@@ -890,6 +890,75 @@
   }
 }
 
+@media (max-width: 600px) {
+  .about-section {
+    padding: 60px 16px;
+  }
+
+  .side-label {
+    display: none;
+  }
+
+  .who-col {
+    padding: 24px 16px;
+  }
+
+  .who-col-portrait {
+    max-width: 180px;
+  }
+
+  .skill-bucket {
+    padding: 24px 16px;
+  }
+
+  .skills-buckets {
+    gap: 28px;
+  }
+
+  .project-umika {
+    padding: 28px 20px 80px;
+    min-height: 220px;
+  }
+
+  .umika-logo-text {
+    font-size: 2.5rem;
+  }
+
+  .umika-tagline {
+    font-size: 0.92rem;
+  }
+
+  .umika-char {
+    height: 68%;
+    transform: translateX(38%);
+  }
+
+  .dumb-wall {
+    display: none;
+  }
+
+  .fun-zone {
+    min-height: auto;
+    overflow: hidden;
+  }
+
+  .claude-bubble {
+    white-space: normal;
+    max-width: 88%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .terminal-wrap {
+    max-width: 100%;
+  }
+
+  .contact-inner {
+    padding: 0 16px 60px;
+  }
+}
+
 /* ══════════════════════════════════════
    REDUCED MOTION OVERRIDES
 ══════════════════════════════════════ */
